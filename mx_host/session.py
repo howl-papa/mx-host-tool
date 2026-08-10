@@ -12,7 +12,7 @@ class ReaderTimeout(Exception):
     pass
 
 
-def calc_timeout(fwi: int) -> int:
+def fwt_ms(fwi: int) -> int:
     """ISO/IEC 14443-4 : FWT = (256 * 16 / fc) * 2**FWI  → 밀리초."""
     return (256 * 16 * (2 ** fwi)) // (FC_HZ // 1000)
 
@@ -24,7 +24,7 @@ class ReaderSession:
         self.max_attempts = max_attempts
 
     def command(self, frame: bytes) -> bytes:
-        timeout = calc_timeout(self.fwi)
+        timeout = fwt_ms(self.fwi)
         for attempt in range(1, self.max_attempts + 1):
             resp = self.transport.transceive(frame, timeout_ms=timeout)
             if resp is not None:
