@@ -1,0 +1,20 @@
+# MX-7 레지스터맵 (가상, Rev B 기준 리셋값) — 데이터시트 v1.3 Table 8-1
+device: MX-7
+revision: B
+registers:
+  - {addr: 0x00, name: CHIP_ID,     access: R,    reset: 0x72, desc: "칩 식별값 (Rev A 0x71)"}
+  - {addr: 0x01, name: STATUS,      access: R,    reset: 0x00, desc: "상태"}
+  - {addr: 0x02, name: CMD,         access: RW,   reset: 0x00, desc: "명령 레지스터"}
+  - {addr: 0x03, name: FIFO_DATA,   access: RW,   reset: 0x00, desc: "FIFO 데이터 (128 bytes)"}
+  - {addr: 0x04, name: FIFO_LEVEL,  access: R,    reset: 0x00, desc: "FIFO 채움 바이트 수"}
+  - {addr: 0x05, name: IRQ_EN,      access: RW,   reset: 0x00, desc: "인터럽트 허용"}
+  - {addr: 0x06, name: IRQ_STATUS,  access: RW1C, reset: 0x00, desc: "인터럽트 상태 (1을 써서 지움)"}
+  - {addr: 0x07, name: RF_CFG,      access: RW,   reset: 0x3C, desc: "RF 설정 (Rev A 0x2C)"}
+  - {addr: 0x08, name: TX_CFG,      access: RW,   reset: 0x10, desc: "송신 설정"}
+  - {addr: 0x09, name: RX_CFG,      access: RW,   reset: 0x22, desc: "수신 설정"}
+  - {addr: 0x0A, name: TIMER_CFG,   access: RW,   reset: 0x00, desc: "타이머 설정"}
+  - {addr: 0x0B, name: FWI_CFG,     access: RW,   reset: 0x04, desc: "bits[3:0] = FWI"}
+  - {addr: 0x0C, name: LPCD_CFG,    access: RW,   reset: 0x02, desc: "bits[1:0] LPCD 주기 (0x02 = 200 ms)"}
+  - {addr: 0x0D, name: LPCD_THR,    access: RW,   reset: 0x20, desc: "LPCD 감지 문턱값"}
+  - {addr: 0x0E, name: TEMP_SENSOR, access: R,    reset: 0x00, desc: "온도 = 값 - 40 (°C)"}
+  - {addr: 0x0F, name: VERSION,     access: R,    reset: 0x13, desc: "버전 (Rev A 0x12)"}
