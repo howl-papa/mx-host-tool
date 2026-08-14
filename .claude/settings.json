@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./secrets/**)",
+      "Bash(python tools/bench_serial.py:*)",
+      "Bash(python tools/prod_db_sync.py:*)",
+      "Bash(git push:*)"
+    ],
+    "allow": [
+      "Bash(pytest:*)",
+      "Bash(python -m pytest:*)"
+    ]
+  }
+}
